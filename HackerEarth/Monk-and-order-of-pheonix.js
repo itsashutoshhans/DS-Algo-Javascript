@@ -13,6 +13,9 @@ process.stdin.on("end", function () {
    main(stdin_input);
 });
 
+
+//--------- MAIN CODE HERE -----------
+
 function main(input) {
     input = input.split("\n");
     
@@ -32,7 +35,7 @@ function main(input) {
     let numOfQueries = Number(input[n+1]);
     let startIndex = n + 2; // queries start index
     
-    let firstRowStack = []; // maintain a first row stack
+    let firstRowStack = []; // maintain a first row stack which contains all the next minimums if the element gets popped off by voldi
     firstRowStack.push(fighters[0][0]);
 
 
@@ -90,7 +93,7 @@ function main(input) {
                    isIncreasing = false;
                    break; 
                }
-               prevMin = fighters[i][ans];
+               prevMin = fighters[i][ans]; // upate the min.
            }
            
          
@@ -102,6 +105,7 @@ function main(input) {
         
     }
     
+    // Binary search to reduce the time complexity
     
     function nextMin(arr, minimumHeightInFirstRow) {
         let lowestIndex = 0, highestIndex = arr.length-1;
