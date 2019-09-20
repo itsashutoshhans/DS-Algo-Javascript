@@ -107,12 +107,12 @@ function main(input) {
     
     // Binary search to reduce the time complexity
     
-    function nextMin(arr, minimumHeightInFirstRow) {
+    function nextMin(arr, minimumHeightTillNow) {
         let lowestIndex = 0, highestIndex = arr.length-1;
         let result = -1;
         while (lowestIndex <= highestIndex) {
             let middleIndexOfRow = Math.floor((lowestIndex + highestIndex)/2);
-            if (arr[middleIndexOfRow] > minimumHeightInFirstRow) {
+            if (arr[middleIndexOfRow] > minimumHeightTillNow) {
                 result = middleIndexOfRow;
                 highestIndex = middleIndexOfRow - 1;
             } else {
